@@ -4,8 +4,8 @@
 **Basic overview**
 
 The neural network generates a matrix of random values, called weights; the model multiplies the weights by an input matrix of sample data, this is the models predictions. Then the predictions are checked against the actual output values, and the weights are updated such that the next prediction will be closer to the actual values. This process is repeated x times until the weights can accurately predict an output given new inputs. If x is too large the model will be overfit to the sample data, meaning that the model is extremely accurate for the sample data, but nothing else. If x is too small, the weights will be essentially random and wont be able to predict anything accurately. A "one layer" neural network is a network with just an input and an output. Some basic matrix calculations and an immediate prediction can be shown as follows: 
+<img src="pictures/neuralNet.png" align="left" width="300"/>
 
-<img src=“pictures/neuralNet.png" align="left" width="300"/>
 
 
 There are x input neurons, or data to predict off of , and an output neuron, y. Each input neuron value is multiplied by its respective weight and combined to give a final output.
