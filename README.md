@@ -1,7 +1,12 @@
 
 <h1>The Math of Neural Networks</h1>
 
-**Basic overview**
+
+<h3>Attached Code</h3>
+
+There is example code for a two layer neural network under code/Neural.py
+
+<h3>Basic Overview</h3>
 
 The neural network generates a matrix of random values, called weights; the model multiplies the weights by an input matrix of sample data, this is the models predictions. Then the predictions are checked against the actual output values, and the weights are updated such that the next prediction will be closer to the actual values. This process is repeated x times until the weights can accurately predict an output given new inputs. If x is too large the model will be overfit to the sample data, meaning that the model is extremely accurate for the sample data, but nothing else. If x is too small, the weights will be essentially random and wont be able to predict anything accurately. A "one layer" neural network is a network with just an input and an output. Some basic matrix calculations and an immediate prediction can be shown as follows: 
 <img src="pictures/neuralNet.png" align="left" width="300"/>
@@ -10,7 +15,7 @@ The neural network generates a matrix of random values, called weights; the mode
 
 There are x input neurons, or data to predict off of , and an output neuron, y. Each input neuron value is multiplied by its respective weight and combined to give a final output.
 
-**Activation functions**
+<h3>Activation functions</h3>
 
 Whether its relu , sigmoid, or something else, an activation functions main purpose is to take in a matrix and output their normalized weights. This means that any number will be converted to a value between 0 and 1 with no negative numbers. Most current neural networks (not counting convolutional or recurrent neural networks) use a sigmoid activation function. 
 <img src="pictures/sigmoidA.png" align="right" width="300"/>
@@ -29,7 +34,7 @@ The reason that programmers chose to use a function with Euler’s number is bec
 
 <br>
 
-**Input Layer**
+<h3>Input Layer</h3>
 
 The model is given a matrix x as input values and a vector y as output values.
 <img src="pictures/table.png" align="right" width="200" height="250"/>
@@ -40,13 +45,13 @@ A matrix of random weights are then generated. The weight matrix will have 3 row
 
 The first step in neural net calculations is to take the dot product of the input matrix and the first layers weight matrix. Feeding this through an activation function, such as a sigmoid function, and adding the probabilities of each row (if there are multiple columns, in this case there aren't) will return the overall probability that the output is a one. The activation function normalizes all probabilities and makes sure no negative probabilities are present.
 
-**Back propagation**
+<h3>Back propagation</h3>
 
 <img src="pictures/gradientDescent.png" align="left" width="300"/>
 
 The initial predictions will be essentially random as the weight matrix is initialized with random values. The model needs to change itself to become more accurate, this is where a method called back propagation comes into effect. The error between actual and predicted values is calculated, the prediction matrix is fed through the derivative of an activation function. If the model is certain that the prediction is right, the sigmoid function will return a probability closer to 0 or 1, thusly the derivative will return a lower slope (refer to the derivative graph). The derivative of the prediction function is multiplied by the error matrix and amplifies any uncertainties in the model. Lastly this matrix is subtracted from the original weight matrix, so in the next cycle the predictions are closer to the actual values. This is also called gradient descent as the matrix follows a "gradient" slope to values with the least possible error. The figure above shows a gradient descent where J(w) is the cost with weights w.  
 
-**Output layer**
+<h3>Output layer</h3>
 
 Here the model outputs its predictions and runs back propagation, this cycle is repeated x times. X needs to be chosen such that the model doesn't fit itself too closely to the sample data, but also such that it can still accurately predict given any data. The model then displays the error, current weight matrices and any other relevant data.
 
